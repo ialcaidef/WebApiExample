@@ -21,7 +21,7 @@ Para ello creamos el siguiente controlador que nos permite obtener un grupo de p
         }
 
         [HttpGet]
-        *** [Produces("application/xml")] ***
+        [Produces("application/xml")] 
         public List<Person> GetAll()
         {
             return _people;
