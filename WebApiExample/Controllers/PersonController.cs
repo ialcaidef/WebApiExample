@@ -22,14 +22,14 @@ namespace WebApiExample.Controllers
             _people.Add(new Person() { Id = 4, FirstName = "Bessie", LastName = "Duppstadt" });
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         [Produces("application/xml")]
         public List<Person> GetAll()
         {
             return _people;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetPersonById/{id}")]
         public ActionResult<Person> GetPersonById(int id)
         {
             var person = _people.FirstOrDefault(p => p.Id == id);
