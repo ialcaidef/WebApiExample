@@ -1,6 +1,6 @@
 ## Implementando Web APIs
 
-Demostración de como desarrollar una Web Api realizada en .NET Core Version="2.1.1"
+DemostraciÃ³n de como desarrollar una Web Api realizada en .NET Core Version="2.1.1"
 
 Para ello creamos el siguiente controlador que nos permite obtener un grupo de personas o una de ellas seleccionada por su id.
 
@@ -21,7 +21,7 @@ Para ello creamos el siguiente controlador que nos permite obtener un grupo de p
         }
 
         [HttpGet]
-        [Produces("application/xml")]
+        [Produces("application/xml")] 
         public List<Person> GetAll()
         {
             return _people;
@@ -43,20 +43,19 @@ Para ello creamos el siguiente controlador que nos permite obtener un grupo de p
 
 ~~~
 
-La información se muestra se devuelve en formato JSON.
+La informaciÃ³n se muestra se devuelve en formato JSON.
 
-Para poder mostrarlo en formato XML, instalamos el siguiente paquete nuget Microsoft.AspNetCore.Mvc.Formatters.Xml y añadimos 
-la siguiente líena en el método del controlador
+Para poder mostrarlo en formato XML, instalamos el siguiente paquete nuget Microsoft.AspNetCore.Mvc.Formatters.Xml y aÃ±adimos 
+la siguiente lÃ­ena en el mÃ©todo del controlador
 
         [HttpGet]
-        ## [Produces("application/xml")] 
+        [Produces("application/xml")] 
         public List<Person> GetAll()
         {
 
-Y en el middleware realizamos la siguiente inyecciónde dependencia.
+Y en el middleware realizamos la siguiente inyecciÃ³nde dependencia.
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            ## services.AddMvc().AddXmlSerializerFormatters();
+            services.AddMvc().AddXmlSerializerFormatters();
         }       
